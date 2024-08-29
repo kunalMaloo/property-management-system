@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
+    <title>Nimbus Aurora || Admin</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/admin-style.css')}}"
+    />
+  </head>
+
+  <body>
+    <input type="checkbox" id="sidebar-toggle" />
+    {%include 'admin/sidebar.html'%}
+    <div class="main-content">
+      <main>
+        <h2 class="dash-title">Overview</h2>
+
+        <div class="dash-cards">
+          <div class="card-single">
+            <div class="card-body">
+              <span class="ti-briefcase"></span>
+              <div>
+                <h5>Total Sales</h5>
+                <h4>${{net_payment}}</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-single">
+            <div class="card-body">
+              <span class="ti-reload"></span>
+              <div>
+                <h5>Rental Sales</h5>
+                <h4>${{net_rent}}</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-single">
+            <div class="card-body">
+              <span class="ti-check-box"></span>
+              <div>
+                <h5>Pending</h5>
+                <h4>${{net_pending}}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="recent">
+          <div class="activity-grid">
+            <div class="activity-card">
+              <h3>Recent activity</h3>
+
+              <div class="table-responsive">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Broker</th>
+                      <th>Property ID</th>
+                      <th>Sell Date</th>
+                      <th>Selling Price($)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {%for property in properties%}
+                    <tr>
+                      <td>{{property.Broker[0].Name}}</td>
+                      <td>{{property.P_ID}}</td>
+                      <td>{{property.Sell_Date}}</td>
+                      <td>{{property.Sell_Price}}</td>
+                    </tr>
+                    {%endfor%}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="summary">
+              <div class="summary-card">
+                <div class="summary-single">
+                  <span class="ti-id-badge"></span>
+                  <div>
+                    <h5>${{bestPrice}}</h5>
+                    <small>Maximum profit</small>
+                  </div>
+                </div>
+                <div class="summary-single">
+                  <span class="ti-calendar"></span>
+                  <div>
+                    <h5>{{qualityBroker.Name}}</h5>
+                    <small>Best Agent(in terms of profit)</small>
+                  </div>
+                </div>
+                <div class="summary-single">
+                  <span class="ti-face-smile"></span>
+                  <div>
+                    <h5>{{quantityBroker[0].Name}}</h5>
+                    <small>Sold maximum properties</small>
+                  </div>
+                </div>
+                <div class="summary-single">
+                  <span class="ti-book"></span>
+                  <div>
+                    <h5>{{numberOfLocalities}}</h5>
+                    <small>Areas Covered</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

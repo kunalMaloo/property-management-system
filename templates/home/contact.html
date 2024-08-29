@@ -1,0 +1,67 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/styles.css')}}"
+    />
+    <title>NIMBUS AURORA</title>
+  </head>
+  <body>
+    {%include 'home/navbar.html'%}
+    <section class="background firstSection">
+      <div class="box-main">
+        <div class="firstHalf">
+          <p class="text-big">CONTACT US</p>
+          <div class="text-small">
+            <p><a href="index.html">HOME</a></p>
+            <ion-icon name="caret-forward-outline" class="about"></ion-icon>
+            <p>Contact</p>
+            <ion-icon name="caret-forward-outline" class="about"></ion-icon>
+          </div>
+        </div>
+        {%include 'home/wrapper.html'%}
+      </div>
+    </section>
+    <section class="secRight-contact">
+      <div class="values">
+        <div class="val-box">
+          <span class="list"><ion-icon name="map-outline"></ion-icon></span>
+          <div>
+            <span>Address</span>
+            <h3>123,XYZ Road,Bongora,Guwahati,IN</h3>
+          </div>
+        </div>
+        <div class="sale">
+          <span class="list"><ion-icon name="call-outline"></ion-icon></span>
+          <div>
+            <span>Phone No.</span>
+            <h3>9237827833</h3>
+          </div>
+        </div>
+
+        <div class="property">
+          <span class="list"><ion-icon name="mail-outline"></ion-icon></span>
+          <div>
+            <span>Email</span>
+            <h3>xyz423@gmail.com</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {%include 'home/footer.html' %}
+    <script src="{{url_for('static', filename='js/index.js')}} "></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

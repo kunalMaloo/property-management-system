@@ -1,0 +1,68 @@
+<form action="{{url_for('search')}}" method="post" class="search-form">
+  <div class="search-box">
+    <div class="search-input-box">
+      <div class="search-heading">Locality</div>
+      <select name="locality" class="search-input">
+        <option value="-">-</option>
+        {%for locality in localities%}
+        <option value="{{locality[0]}}">{{locality[0]}}</option>
+        {%endfor%}
+      </select>
+    </div>
+
+    <div class="search-input-box">
+      <div class="search-heading">Area</div>
+      <select name="area" class="search-input">
+        <option value="-">-</option>
+        {%for area_index in range(areas|length)%} {%if not loop.last%}
+        <option value="{{areas[area_index]}}-{{areas[area_index+1]}}">
+          {{areas[area_index]}}-{{areas[area_index+1]}}
+        </option>
+        {%endif%} {%endfor%}
+      </select>
+    </div>
+
+    <div class="search-input-box">
+      <div class="search-heading">Minimum Price</div>
+
+      <input
+        type="number"
+        name="min_price"
+        id="min"
+        value="0"
+        class="search-input"
+      />
+    </div>
+    <div class="search-input-box">
+      <div class="search-heading">Maximum Price</div>
+
+      <input
+        type="number"
+        name="max_price"
+        id="max"
+        value="9999999"
+        max="9999999"
+        class="search-input"
+      />
+    </div>
+    <div class="search-input-box">
+      <div class="search-heading">Availability</div>
+
+      <select name="availability" class="search-input">
+        <option value="-">-</option>
+        <option value="rent">Rent</option>
+        <option value="sale">Sale</option>
+      </select>
+    </div>
+    <div class="search-input-box">
+      <div class="search-heading">Status</div>
+
+      <select name="availability" class="search-input">
+        <option value="-">-</option>
+        <option value="sold">Sold</option>
+        <option value="available">Available</option>
+      </select>
+    </div>
+    <input type="submit" value="Search" class="search-button" />
+  </div>
+</form>

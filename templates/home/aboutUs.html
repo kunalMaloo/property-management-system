@@ -1,0 +1,66 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="{{url_for('static',filename='images/favicon.ico')}}"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/styles.css')}}"
+    />
+    <title>NIMBUS AURORA</title>
+  </head>
+  <body>
+    {%include 'home/navbar.html'%}
+
+    <section class="background firstSection">
+      <div class="box-main">
+        <div class="firstHalf">
+          <p class="text-big">ABOUT US</p>
+          <div class="text-small">
+            <p><a href="index.html">HOME</a></p>
+            <ion-icon name="caret-forward-outline" class="about"></ion-icon>
+            <p>ABOUT US</p>
+            <ion-icon name="caret-forward-outline" class="about"></ion-icon>
+          </div>
+        </div>
+        {%include 'home/wrapper.html'%}
+      </div>
+    </section>
+
+    <section class="secRight-about">
+      <div class="paras">
+        <p class="sectionTag">Welcome to Nimbus Aurora</p>
+        <p class="sectionSubTag text-small">
+          Together, "Nimbus Aurora" can be interpreted as a name that combines
+          the meanings of both words to evoke a sense of natural beauty and
+          wonder. Our real estate project aims to provide a tranquil and
+          inspiring environment with a focus on eco-friendlieness and
+          sustainable design.
+        </p>
+      </div>
+      <img
+        src="{{url_for('static', filename='images/realestate.webp')}}"
+        alt=""
+        class="imgFluid"
+      />
+    </section>
+
+    {%include 'home/footer.html'%}
+
+    <script src="{{url_for('static', filename='js/index.js')}} "></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+    <link
+    rel="stylesheet"
+    href="{{url_for('static', filename='css/styles.css')}}"
+    />
+    <title>NIMBUS AURORA</title>
+    <link
+      rel="icon"
+      href="{{url_for('static',filename='images/favicon.ico')}}"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    {% include 'home/navbar.html' %}
+    <style>
+      :root {
+        --background-url: url("{{url_for('static',filename='images/house3.jpg')}}");
+      }
+    </style>
+    <section class="background firstSection">
+      <div class="box-main">
+        <div class="firstHalf">
+          <p class="text-big">YOUR SANCTUARY IN THE CLOUDS</p>
+        </div>
+        {%include 'home/wrapper.html'%}
+      </div>
+    </section>
+    <section class="secRight">
+      <div class="heading">
+        <h2 class="h1-text-big blue">PROPERTY</h2>
+        <p>&emsp;</p>
+        <h2 class="h1-text-big">LISTING</h2>
+      </div>
+      {%include 'home/search.html'%}
+      <div class="properties">
+        {%for property in properties%}
+        <div class="card">
+          <div class="card-img">
+            <img
+              src="{{url_for('static',filename='images/properties/'+property.photos[0].Photo_URL)}}"
+              alt=""
+              class="property-img"
+            />
+          </div>
+          <div class="property-data">
+            <h4>Address : {{property.Address}}</h4>
+            <h4>Locality : {{property.Locality}}</h4>
+            <h4>
+              Availability : {% if property.Rent == True%} Rent {%else%} Sale
+              {%endif%}
+            </h4>
+            <h4>Price : $ {{property.Price}}</h4>
+          </div>
+          <div class="buy-property">
+            {%if "type" not in session.keys() or session["type"] != 'Client'%}
+            <style>
+              .buy-property-link:hover {
+                cursor: not-allowed;
+              }
+              .buy-property-link:hover::before {
+                content: "Log in as Client to ";
+              }
+            </style>
+            <a href="#" class="buy-property-link">Connect</a>
+            {%else%}
+            <a
+              href="{{url_for('agentProfileSimple', agentID = property.Broker[0].License_ID)}}"
+              class="buy-property-link"
+              >Connect</a
+            >
+
+            {%endif%}
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+    </section>
+    <section class="thirdSection">
+      <a href="{{url_for('sold')}}" class="sold-link"> Sold Properties </a>
+      {%if "type" in session.keys() and session["type"] == 'Seller'%}
+      <a class="sell-link" href="{{url_for('addProperty')}}">Add Property</a>
+      {%else%}
+      <style>
+        .sell-link:hover {
+          cursor: not-allowed;
+        }
+      </style>
+      <a href="#" class="sell-link"> Add Property </a>
+      {%endif%}
+    </section>
+
+    {% include 'home/footer.html' %}
+
+    <script src="{{url_for('static', filename='js/index.js')}} "></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

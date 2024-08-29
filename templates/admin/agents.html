@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nimbus Aurora || Admin</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css"
+    />
+    <link
+    rel="stylesheet"
+    href="{{url_for('static', filename='css/admin-style.css')}}"
+    />
+    <link rel="stylesheet" href="{{url_for('static',filename='css/new_agent.css')}}" />
+</head>
+
+<body>
+  {%include 'admin/sidebar.html'%}
+
+  <div class="main-content"></div>
+    <div class="header_fixed">
+        <table>
+            <thead>
+                <tr>
+                  <th>S No.</th>
+                  <th>Image</th>  
+                  <th>Name</th>
+                  <th>Phone Number</th>  
+                  <th>Brokerage</th>  
+                  <th>Locality</th>  
+                </tr>
+                </thead>
+                <tbody>
+                  {%for broker in brokers%}
+                  <tr>
+                    <td>{{broker.License_ID}}</td>
+                    <td><img src="{{url_for('static',filename='images/Broker/'+broker.Photo)}}" class="agent-img"/></td>
+                    <td>{{broker.Name}}</td>
+                    <td>{{broker.Phone_no}}</td>
+                    <td>{{broker.Brokerage}}%</td>
+                    <td>{{broker.Locality}}</td>
+                  </tr>
+                  {%endfor%}                  
+                </tbody>  
+            </thead>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/styles1.css')}}"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>AGENT-PROFILE</title>
+  </head>
+  <body>
+    {%include 'agent/menu.html'%}
+
+    <section id="interface">
+      {%include 'agent/agentNav.html'%}
+
+      <h3 class="i-name">PROFILE</h3>
+      <div class="rightbox">
+        <div class="profile-row">
+          <h2>License Id</h2>
+          <input
+            type="number"
+            class="input"
+            value="{{broker.License_ID}}"
+            readonly
+          />
+        </div>
+        <div class="profile-row">
+          <h2>Name</h2>
+          <input type="text" class="input" value="{{broker.Name}}" readonly />
+        </div>
+        <div class="profile-row">
+          <h2>Phone Number</h2>
+          <input
+            type="tel"
+            class="input"
+            value="{{broker.Phone_no}}"
+            readonly
+          />
+        </div>
+
+        <div class="profile-row">
+          <h2>Locality</h2>
+          <input
+            type="text"
+            class="input"
+            value="{{broker.Locality}}"
+            readonly
+          />
+        </div>
+      </div>
+    </section>
+    <script>
+      $("#menu-bar").click(function () {
+        $("#menu").toggleClass("active");
+      });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

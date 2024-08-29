@@ -1,0 +1,4 @@
+flask==2.2.3 
+flask_sqlalchemy==3.0.3
+pymysql==1.0.3
+

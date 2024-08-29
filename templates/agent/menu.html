@@ -1,0 +1,34 @@
+<section id="menu">
+  <div class="logo">
+    <img src="{{url_for('static', filename='images/1.png')}}" alt="" />
+    <h2>
+      <style>
+        .head-a {
+          text-decoration: None;
+          color: lightblue;
+        }
+      </style>
+      <a href="{{url_for('home')}}" class="head-a"> NIMBUS AURORA </a>
+    </h2>
+  </div>
+  <div class="items">
+    <a href="{{url_for('agent', agentID = agentID)}}">
+      <li>
+        <span class="list"><ion-icon name="list-outline"></ion-icon></span>
+        DASHBOARD
+      </li>
+    </a>
+    <a href="{{url_for('agentProperties', agentID = agentID)}}">
+      <li>
+        <span class="list"><ion-icon name="home"></ion-icon></span>
+        PROPERTIES
+      </li>
+    </a>
+    <a href="{{url_for('agentCustomers', agentID = agentID)}}">
+      <li>
+        <span class="list"><ion-icon name="person"></ion-icon></span>
+        CUSTOMERS
+      </li>
+    </a>
+  </div>
+</section>

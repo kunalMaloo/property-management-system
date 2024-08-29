@@ -1,0 +1,109 @@
+{%if 'username' in session.keys()%}
+<div class="wrapper">
+  {%else%}
+  <div class="wrapper active-popup">
+    {%endif%}
+    <span class="icon-close">
+      <ion-icon name="close"></ion-icon>
+    </span>
+
+    <div class="form-box login">
+      <h2>LOGIN</h2>
+      <form method="POST" action="/login">
+        <div class="input-box">
+          <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+          <input type="number" class="licenseid" name="userID" />
+          <label>User ID</label>
+        </div>
+        <div class="input-box">
+          <span class="icon"
+            ><ion-icon name="lock-closed-outline"></ion-icon
+          ></span>
+          <input type="password" class="pswd" name="password" />
+          <label>Password</label>
+        </div>
+        <div class="radio-buttons">
+          <label for="radio-label">
+            <input type="radio" name="type" value="Agent" checked="checked" />
+            Agent
+          </label>
+          <label for="radio-label">
+            <input type="radio" name="type" value="Client" />
+            Client
+          </label>
+          <label for="radio-label">
+            <input type="radio" name="type" value="Seller" />
+            Seller
+          </label>
+          <label for="radio-label">
+            <input type="radio" name="type" value="Admin" />
+            Admin
+          </label>
+        </div>
+        <input type="submit" value="SUBMIT" class="btn" />
+        <div class="login-register">
+          <p>
+            Don't have an account?
+            <a href="#" class="register-link">Register</a>
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <div class="form-box register">
+      <h2>REGISTRATION</h2>
+      <form name="register-form" method="POST" action="">
+        <div class="input-box">
+          <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+          <input type="number" class="licenseid" />
+          <label>Name</label>
+        </div>
+        <div class="input-box">
+          <span class="icon">
+            <ion-icon name="call-outline"></ion-icon>
+          </span>
+          <input type="tel" class="phone" />
+          <label>Phn no.</label>
+        </div>
+        <div class="input-box">
+          <span class="icon"
+            ><ion-icon name="lock-closed-outline"></ion-icon
+          ></span>
+          <input type="password" class="pswd" />
+          <label>Password</label>
+        </div>
+
+        <div class="input-box">
+          <span class="icon"
+            ><ion-icon name="lock-closed-outline"></ion-icon
+          ></span>
+          <input type="password" class="pswd" />
+          <label>Confirm Password</label>
+        </div>
+        <div class="radio-buttons">
+          <label for="radio-label">
+            <input type="radio" name="type" value="Agent" checked="checked" />
+            Agent
+          </label>
+          <label for="radio-label">
+            <input type="radio" name="type" value="Client" />
+            Client
+          </label>
+          <label for="radio-label">
+            <input type="radio" name="type" value="Seller" />
+            Seller
+          </label>
+        </div>
+        <div class="terms-condition">
+          <input type="submit" value="SUBMIT" class="btn" />
+        </div>
+        <div class="login-register">
+          <p>
+            Already have an account?
+            <a href="#" class="login-link">Login</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
